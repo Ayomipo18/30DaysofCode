@@ -7,3 +7,6 @@ const single = (num) => {
     }
 	return times;
 }
+
+console.log(single(43));
+console.log(single(4));
