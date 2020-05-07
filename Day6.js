@@ -9,14 +9,31 @@ const Atongue = (str) => {
 
 	//the entire for loop generate akin's words from the input english sentence 
 	for( let i=0; i<splitted.length; i++){
-		// this block of code checks for and removes any commas and spaces in the split english sentence
-		if(splitted[i] === ',' || splitted[i] === ' ') {
-			splitted.splice(splitted.indexOf(splitted[i]), 1);
+		// this block of code checks for and removes any commas,spaces or fullstops in the split english sentence
+		switch(splitted[i]){
+			case  ',':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
+			case  ' ':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
+			case  '.':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
 		};
-		// it double checks, incase of spaces or commas occuring twice(which is the max it can occur)
-		if(splitted[i] === ',' || splitted[i] === ' ') {
-			splitted.splice(splitted.indexOf(splitted[i]), 1);
+		//it double checks, incase of spaces,commas or fullstops occuring twice(which is the max it can occur)
+		switch(splitted[i]){
+			case  ',':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
+			case  ' ':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
+			case  '.':
+				splitted.splice(splitted.indexOf(splitted[i]), 1);
+				break;
 		};
+
 		//the check function is used to handle uppercase letters and it stores it in the checked variable
 		const check = () => {
 		if(splitted[i] === splitted[i].toUpperCase()) return true
@@ -59,7 +76,7 @@ const Atongue = (str) => {
 	};
 	//this for loop is used for generating the sequence of the spaces and commas and also their positions in the input english sentence
 	for( let i=0; i<splitted2.length; i++){
-		if(splitted2[i] === ',' || splitted2[i] === ' ') {
+		if(splitted2[i] === ',' ||( splitted2[i] === ' ' || splitted2[i] === '.')) {
 			spacesAndCommas.push(splitted2[i]);
 			saverArray.push(splitted2.indexOf(splitted2[i], i));
 		}
@@ -70,5 +87,5 @@ const Atongue = (str) => {
 	return akinWords.join('');
 };
 
-console.log(Atongue('As a boss, I refuse to speak the tongue of Mortal Men'));
-console.log(Atongue('Eh e pihh, O dagyha ni hbaev nsa nitfya ig Widnec Wat'));
+console.log(Atongue('As a boss, I refuse to speak the tongue of Mortal Men. Haaa'));
+console.log(Atongue('Eh e pihh, O dagyha ni hbaev nsa nitfya ig Widnec Wat. Seee'));
