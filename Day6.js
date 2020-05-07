@@ -10,28 +10,12 @@ const Atongue = (str) => {
 	//the entire for loop generate akin's words from the input english sentence 
 	for( let i=0; i<splitted.length; i++){
 		// this block of code checks for and removes any commas,spaces or fullstops in the split english sentence
-		switch(splitted[i]){
-			case  ',':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
-			case  ' ':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
-			case  '.':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
+		if(splitted[i] === ',' || (splitted[i] === ' ' || splitted[i] === '.')) {
+			splitted.splice(splitted.indexOf(splitted[i]), 1);
 		};
-		//it double checks, incase of spaces,commas or fullstops occuring twice(which is the max it can occur)
-		switch(splitted[i]){
-			case  ',':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
-			case  ' ':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
-			case  '.':
-				splitted.splice(splitted.indexOf(splitted[i]), 1);
-				break;
+		// it double checks, incase of spaces,commas r fullstops occuring twice(which is the max it can occur)
+		if(splitted[i] === ',' || (splitted[i] === ' ' || splitted[i] === '.')) {
+			splitted.splice(splitted.indexOf(splitted[i]), 1);
 		};
 
 		//the check function is used to handle uppercase letters and it stores it in the checked variable
