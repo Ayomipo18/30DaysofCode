@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //bring in routes
 const routes = require('./routes');
 
-const MONGO_URI = "mongodb://localhost/User"; 
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/User"; 
 
 mongoose.connect(MONGO_URI, { 
 	useNewUrlParser: true,
