@@ -28,7 +28,7 @@ mongoose.connection.on('error', err => {
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes'));
-app.use('/new', require('./routes/url'));
+app.use('/shortener', require('./routes/url'));
 
 
 const PORT = process.env.PORT || 3000;
